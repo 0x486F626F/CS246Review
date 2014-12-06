@@ -426,3 +426,20 @@ class NormalBook: public AbstractBook {
 	}
 };
 ```
+
+Pimpl Idiom (Pointer to Implementation)
+---
+client.cc include windows.h. This creates a compilation dependency. Any change to window.h require compilation cliend.cc (even the change is to a private field).
+```C++
+class XWindowImp {
+	public:
+	Display *d;
+	Window w;
+	GC gc;
+};	//contains all previously private fields from XWindow
+class Window {
+	XWindowImp *pImp;
+	public:
+};
+```
+

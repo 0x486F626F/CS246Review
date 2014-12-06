@@ -87,10 +87,10 @@ head -20 sample.txt | wc -w
 ```
 
 ```bash
-echo Today is `date` and I am whoiam
-echo Today is $(date) and "I am whoiam"
-echo "Today is `date`" and "I am $(whoiam)"
-echo 'Today is `date`' and 'I am $(whoiam)'
+echo Today is `date` and I am whoami
+echo Today is $(date) and "I am whoami"
+echo "Today is `date`" and "I am $(whoami)"
+echo 'Today is `date`' and 'I am $(whoami)'
 ```
 
 Pattern Matching within Text Files
