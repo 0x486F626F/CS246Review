@@ -230,6 +230,7 @@ Advice: have few friends as possible -- break encapsulation
 
 Relationship 1: Composition
 ---
+```C++
 class Vec {
 	int x, y, z;
 	public:
@@ -371,3 +372,57 @@ If you need to make a class abstract but cannot decide on a method, pick the des
 virtual ~Subject() = 0;	//pure virtual
 ```
 Must implement the destruct, because subclass destructor call supercalss destructor. A pure virtual method must be overriden in the subclass.
+
+Partial Assignment
+---
+```C++
+class Book {
+	public:
+	Book &operator=(const Book &other) {
+		...;
+		return *this;
+	}
+};
+class Textbook: public Book {
+	//no operator= implemented
+};
+Textbook b1(...);
+Textbook b2(...);
+Book* p1 = &b1;
+Book* p2 = &b2;
+*p1 = *p2;
+```
+Book's operator= is executed -- Partial Assignment.
+```C++
+class Book {
+	virtual Book &operator=(const Book &other);
+};
+class Textbook: public Textbook {
+	Textbook &operator=(const Textbook &other);
+};
+```
+Not a valid override -- must have same signature
+```C++
+class Textbook: public Textbook {
+	Textbook &operator=(const Book &other);
+}
+```
+Cannot access to Textbook.topic -- Mixed Assignment
+
+Recommendation: make all superclasses abstract
+```C++
+class AbstractBook {
+	protected:
+	AbstractBook &operator=(const Abstractbook &other);
+	public:
+	virtual ~AbstractBook() = 0;
+};
+class NormalBook: public AbstractBook {
+	public:
+	NormalBook &operator=(const NormalBook &other) {
+		AbstrackBook::operator=(other);
+		...
+		return *this;
+	}
+};
+```
