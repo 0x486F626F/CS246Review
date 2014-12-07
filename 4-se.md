@@ -57,3 +57,43 @@ Some entities which publishes/generates data: The Subject
 Other entities which subscribe to data to react/consume it: The Observer
 
 See provided example code
+
+Decorator Pattern
+---
+
+See provided example code
+
+Factory Method Pattern
+---
+
+Enemies: Turtle, Bullet, Boss (singleton)
+Level: Normal, Castle
+
+```C++
+while(Game not end) Enemy *e = l->createEnemy();
+```
+
+* Compartmentalizes enemy creation logic inside levels
+* Ability to have different logic based on levels
+
+Singleton and factory method pattern often work together. Imagine a Boss enemy, there is only one Boss.
+
+```C++
+while(Game not end) Enemy *e = e->createEnemy();
+```
+
+See wiki
+
+Template Pattern
+---
+
+Put same code in a superclass. No subclass can override non-virtual private methods.
+
+See provided example code
+
+Visitor Pattern
+---
+
+Double Dispatch: make a decision on which method to call based on the type of tweet objects.
+
+See provided sample code
