@@ -368,7 +368,8 @@ Uses of abstract classes
 * polymorphism
 * place common fields in superclass
 
-If you need to make a class abstract but cannot decide on a method, pick the destructor```C++
+If you need to make a class abstract but cannot decide on a method, pick the destructor
+```C++
 virtual ~Subject() = 0;	//pure virtual
 ```
 Must implement the destruct, because subclass destructor call supercalss destructor. A pure virtual method must be overriden in the subclass.
